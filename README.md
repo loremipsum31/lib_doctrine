@@ -56,7 +56,7 @@ class Group
     protected $active = false;
 ```
 
-Exemple view "view.php"
+##### Exemple view "view.php"
 
 ```
 /** @var $entityManager \Doctrine\ORM\EntityManager */
@@ -80,7 +80,7 @@ if (true === $twig_util->resolve_path("view.lte") ) {
 	);
 }
 ```
-Exemple view "view.lte"
+##### Exemple view "view.lte"
 
 ```
 {% for group in groups %}

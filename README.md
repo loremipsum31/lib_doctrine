@@ -3,7 +3,9 @@
 
 Doctrine entities have to be in module/MODULE_NAME/Entity folder with the namespace ModuleName\Entity
 
-To generate the database with the entity, in the modules/lib_doctrine folder you can type
+##### To generate the database with the entity
+
+Open a terminal, go to the modules/lib_doctrine folder and type
 
 ```
 vendor/bin/doctrine orm:schema-tool:update --force

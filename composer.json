@@ -1,0 +1,15 @@
+{
+    "name": "lowlo/lib_doctrine",
+    "require": {
+        "doctrine/orm": "^2.5"
+    },
+    "authors": [
+        {
+            "name": "Laurent",
+            "email": "laurent.paganin@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "": "Entity/" }
+    }
+}

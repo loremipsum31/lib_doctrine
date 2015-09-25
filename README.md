@@ -77,14 +77,14 @@ if (true === $twig_util->resolve_path("view.lte") ) {
 	echo $parser->render(
 		"@news/view.lte",
 		array(
-			'groups' => $groups
+			'news' => $news
 		)
 	);
 }
 ```
 ##### Exemple view "view.lte"
 
-```
+```twig
 {% for post in news %}
 	{{ post.title }}
 {% endfor %}

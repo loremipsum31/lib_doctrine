@@ -35,7 +35,7 @@ class Page
 
     /**
      * @var int
-     * @ORM\Column(name="level", type="integer")
+     * @ORM\Column(name="level", type="integer", options={"default" = "0"})
      */
     protected $level = 0;
 

@@ -27,7 +27,8 @@ $paths = array();
 foreach(glob(LEPTON_PATH . '/modules/*') as $file){
 	if(is_dir($file . '/Entity')){
 		$paths[] = $file . '/Entity';
-		$classLoader->addPsr4(ucfirst($inflector->camelize(end(explode('/', $file)))) . '\\', $file, true);
+		$nameArray = explode('/', $file);
+		$classLoader->addPsr4(ucfirst($inflector->camelize(end($nameArray))) . '\\', $file, true);
 	}
 }
 $classLoader->register(true);

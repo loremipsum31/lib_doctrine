@@ -1,7 +1,7 @@
 # lib_doctrine
 #### lib_doctrine for Lepton CMS 2 series
 
-Doctrine entities have to be in module/MODULE_NAME/Entity folder with the namespace ModuleName\Entity
+Doctrine entities have to be in modules/MODULE_NAME/Entity folder with the namespace ModuleName\Entity
 
 ##### To generate the database with the entity
 
@@ -17,15 +17,16 @@ All the documentation about doctrine can be see here http://docs.doctrine-projec
 
 ##### Exemple doctrine entities
 
-```
-#modules/articles/Entity/Group.php
-namespace Articles\Entity;
+```php
+#modules/news/Entity/News.php
+<?php
+namespace News\Entity;
 
 /**
- * @ORM\Table(name="lep_mod_articles_groups")
+ * @ORM\Table(name="lep_mod_news")
  * @ORM\Entity
  */
-class Group
+class News
 {
     /**
      * @var \Section
@@ -54,37 +55,38 @@ class Group
      * @ORM\Column(name="active", type="boolean", nullable=false)
      */
     protected $active = false;
+    
+    //Getter and setter must be define
 ```
 
 ##### Exemple view "view.php"
 
-```
+```php
+<?php
 /** @var $entityManager \Doctrine\ORM\EntityManager */
 global $entityManager;
 if (!isset($entityManager)) {
 	require_once(LEPTON_PATH."/modules/lib_doctrine/library.php");
 }
 
-
-$groups = $entityManager->getRepository('Articles\Entity\Group')->findBy(array(
+$news = $entityManager->getRepository('News\Entity\News')->findBy(array(
 	'section' => $section_id,
 ));
 
-
 if (true === $twig_util->resolve_path("view.lte") ) {
 	echo $parser->render(
-		"@articles/view.lte",
+		"@news/view.lte",
 		array(
-			'groups' => $groups
+			'news' => $news
 		)
 	);
 }
 ```
 ##### Exemple view "view.lte"
 
-```
-{% for group in groups %}
-	{{ group.title }}
+```twig
+{% for post in news %}
+	{{ post.title }}
 {% endfor %}
 ```
 

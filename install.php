@@ -17,19 +17,3 @@ if (defined('WB_PATH')) {
 	}
 }
 // end include class.secure.php
-
-/** @var $entityManager \Doctrine\ORM\EntityManager */
-global $entityManager;
-if (!isset($entityManager)) {
-	require_once(LEPTON_PATH."/modules/lib_doctrine/library.php");
-}
-
-$tool = new \Doctrine\ORM\Tools\SchemaTool($entityManager);
-
-$classes = array(
-	$entityManager->getClassMetadata('\Group'),
-	$entityManager->getClassMetadata('\Page'),
-	$entityManager->getClassMetadata('\Section'),
-	$entityManager->getClassMetadata('\User'),
-);
-$tool->updateSchema($classes, true);

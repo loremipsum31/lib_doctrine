@@ -58,6 +58,7 @@ $dbParams = array(
 	'password' => DB_PASSWORD,
 	'dbname'   => DB_NAME,
 	'host'     => DB_HOST,
+	'port'     => DB_PORT,
 	'charset'  => 'utf8',
 	'driverOptions' => array(
 		1002 => 'SET NAMES utf8'
